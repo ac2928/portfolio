@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aarav Chopra · Portfolio</title>
+  <meta name="description" content="Aarav Chopra, Business and Information Systems student at NJIT, interested in AI research and building tested software.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-layout="b">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-row">
+      <a class="name" href="#top">Aarav Chopra</a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#resume">Résumé</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <div class="layout-switch wrap" role="group" aria-label="Choose a layout (draft comparison)">
+    <span>Draft layout:</span>
+    <button type="button" data-set="a" aria-pressed="false">A · Research notebook</button>
+    <button type="button" data-set="b" aria-pressed="true">B · Project dashboard</button>
+  </div>
+
+  <main id="main" class="wrap">
+    <section id="top" class="intro">
+      <p class="eyebrow">Business and Information Systems · NJIT · Class of 2029</p>
+      <h1>I build and test software, and I want to do AI research.</h1>
+      <p class="lede">I'm Aarav, a Business and Information Systems student at NJIT. I'm into technology, entrepreneurship and AI, especially AI research. I'm looking for internships and undergraduate research opportunities in AI or other technical work like software development, where I can build and test real projects.</p>
+      <p class="direction"><strong>Working direction:</strong> AI research (long-term goal). Next step: build research experience through Python and machine-learning projects and undergraduate research.</p>
+      <p class="actions">
+        <a class="button" href="#work">See my work</a>
+        <a class="button secondary" href="resume.pdf">Résumé (PDF)</a>
+      </p>
+    </section>
+
+    <section id="work" aria-labelledby="work-title">
+      <h2 id="work-title">Case studies</h2>
+
+      <div class="cases">
+        <article class="case" aria-labelledby="robot-title">
+          <p class="tag">Individual project · <span class="status">In progress (2 of 4 reviews)</span></p>
+          <h3 id="robot-title">Sneaky Robot RPS</h3>
+          <p class="summary">A rock-paper-scissors web game where a robot tries to predict your next move. Players sign up, play, and get their results saved to a private dashboard.</p>
+          <dl class="story">
+            <dt>Problem</dt>
+            <dd>Make a robot opponent that feels sneaky, while keeping accounts and saved results secure.</dd>
+            <dt>My decision</dt>
+            <dd>I built on the course's Bot Lab foundation (Flask, Flask-Login, SQLite) and added my Sneaky Robot as a Strategy function: it guesses the move I usually play after my last move and beats it. Adding it didn't change the game code.</dd>
+            <dt>How I checked it</dt>
+            <dd>I wrote my tests first, including one proving the robot never sees the player's current move. 37 tests, Black, Pylint (10/10) and GitHub Actions CI pass. I also played it in the browser, restarted the server, and confirmed rounds were still saved and private pages were blocked after sign-out.</dd>
+            <dt>What I learned</dt>
+            <dd>My test caught a database rule that only allowed the two original robots. Next time I'll list every place a new feature must be registered before coding.</dd>
+            <dt>Planned next</dt>
+            <dd>Dashboard history, account settings checks, and a classmate review.</dd>
+          </dl>
+          <p class="links">
+            <a href="https://github.com/ac2928/sneaky-robot-rps">Code</a>
+            <a href="https://github.com/ac2928/sneaky-robot-rps/pull/1">Pull request</a>
+            <a href="https://github.com/ac2928/sneaky-robot-rps/blob/main/tests/test_sneaky.py">My tests</a>
+          </p>
+        </article>
+
+        <article class="case" aria-labelledby="bench-title">
+          <p class="tag">Group project with Nandish · <span class="status">In progress (plan done)</span></p>
+          <h3 id="bench-title">Bench &amp; Bolt Repair Queue</h3>
+          <p class="summary">An app for a simulated bike repair shop (a course customer exercise): staff enter repair requests and track an honest status in one queue.</p>
+          <dl class="story">
+            <dt>My part</dt>
+            <dd>Member A: the intake form, input validation and its tests. I also review my partner's queue and status work. Nandish owns the database, queue and status changes.</dd>
+            <dt>Done so far</dt>
+            <dd>I set up the shared repo, ran the simulated customer conversation, and drafted the team plan: we chose staff-only intake, agreed 4 stories, the data fields and the status rules (Pending review → Accepted/Declined → Completed).</dd>
+            <dt>Planned next</dt>
+            <dd>Build the intake form so invalid requests save nothing and show a clear error, with tests.</dd>
+          </dl>
+          <p class="links">
+            <a href="https://github.com/ac2928/bench-and-bolt">Code</a>
+            <a href="https://github.com/ac2928/bench-and-bolt/blob/main/SPEC.md">Team plan</a>
+          </p>
+        </article>
+      </div>
+
+      <h2 class="more-title">More projects</h2>
+      <ul class="more">
+        <li>
+          <h3>OOP Calculator</h3>
+          <p>Command-line calculator in object-oriented Python with factory and command patterns, pandas statistics and 100% test coverage.</p>
+          <a href="https://github.com/ac2928/my-oop-calculator">Code</a>
+        </li>
+        <li>
+          <h3>Rock-Paper-Scissors Web Game</h3>
+          <p>Flask game built from a written spec with an AI coding agent, then reviewed and tested: unit, integration and real-browser tests in GitHub Actions.</p>
+          <a href="https://github.com/ac2928/my-rps">Code</a>
+        </li>
+        <li>
+          <h3>Roomwise Smart-Home Store</h3>
+          <p>Storefront with a room filter, product pages, a cart saved in the browser and a simulated checkout, packaged in Docker.</p>
+          <a href="https://ac2928.github.io/roomwise/">Live site</a>
+        </li>
+        <li>
+          <h3>Digital Museum: Evolution of Web Design</h3>
+          <p>Scroll-driven exhibit site using IntersectionObserver and sticky layouts, following Swiss design principles.</p>
+          <a href="https://ac2928.github.io/IS-117-Final-Museum-Project/">Live site</a>
+        </li>
+      </ul>
+    </section>
+
+    <section id="resume" aria-labelledby="resume-title">
+      <h2 id="resume-title">Résumé</h2>
+      <p>My current résumé (draft, updated November 2026): education, projects, work experience and skills.</p>
+      <p><a class="button" href="resume.pdf">Open résumé (PDF)</a></p>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <ul class="contact">
+        <li><span>Email</span> <a href="mailto:chopra.aarav2006@gmail.com">chopra.aarav2006@gmail.com</a></li>
+        <li><span>GitHub</span> <a href="https://github.com/ac2928">github.com/ac2928</a></li>
+        <li><span>LinkedIn</span> <a href="https://www.linkedin.com/in/aarav-chopra-0189a3360/">linkedin.com/in/aarav-chopra-0189a3360</a></li>
+        <li><span>This site's code</span> <a href="https://github.com/ac2928/portfolio">github.com/ac2928/portfolio</a></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <p>Draft for IS218 Review 2. Layouts A and B show the same content; I'm comparing them before choosing one. Unfinished work is labeled "in progress."</p>
+  </footer>
+
+  <script>
+    // Switch between the two draft layouts. ?layout=a or ?layout=b opens one directly.
+    (function () {
+      var buttons = document.querySelectorAll(".layout-switch button");
+      function setLayout(name) {
+        document.body.dataset.layout = name;
+        buttons.forEach(function (b) {
+          b.setAttribute("aria-pressed", String(b.dataset.set === name));
+        });
+      }
+      buttons.forEach(function (b) {
+        b.addEventListener("click", function () { setLayout(b.dataset.set); });
+      });
+      var fromUrl = new URLSearchParams(location.search).get("layout");
+      if (fromUrl === "a" || fromUrl === "b") setLayout(fromUrl);
+    })();
+  </script>
+</body>
+</html>

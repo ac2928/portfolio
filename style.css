@@ -1,0 +1,85 @@
+/* One set of content, two draft layouts: A (research notebook) and B (project dashboard). */
+:root {
+  --ink: #1d232a;
+  --muted: #4d5763;
+  --paper: #fbfaf7;
+  --line: #d9d4ca;
+  --accent: #1f5f8b;
+  --accent-ink: #ffffff;
+  --card: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid #e0a100; outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+
+.skip { position: absolute; left: -999px; top: 0; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--card); padding: .5rem 1rem; z-index: 10; }
+
+.site-header { border-bottom: 1px solid var(--line); background: var(--card); }
+.header-row { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; align-items: center; justify-content: space-between; padding-block: .9rem; }
+.name { font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.1rem; }
+nav ul { list-style: none; display: flex; gap: 1.25rem; margin: 0; padding: 0; }
+
+.layout-switch { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; padding-block: .9rem; font-size: .9rem; color: var(--muted); }
+.layout-switch button {
+  font: inherit; color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); border-radius: 999px; padding: .35rem .9rem; cursor: pointer;
+}
+.layout-switch button[aria-pressed="true"] { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+.eyebrow, .tag { font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 0 0 .5rem; }
+.status { color: #8a4b00; font-weight: 600; }
+h1 { font-size: clamp(1.9rem, 5vw, 2.9rem); line-height: 1.15; margin: 0 0 1rem; }
+h2 { font-size: 1.6rem; margin: 3rem 0 1.25rem; }
+h3 { font-size: 1.25rem; margin: 0 0 .5rem; }
+.lede { font-size: 1.15rem; max-width: 42rem; }
+.direction { max-width: 42rem; color: var(--muted); }
+
+.button {
+  display: inline-block; background: var(--accent); color: var(--accent-ink);
+  padding: .6rem 1.1rem; border-radius: 8px; text-decoration: none; font-weight: 600; margin: .25rem .5rem .25rem 0;
+}
+.button.secondary { background: transparent; color: var(--accent); border: 2px solid var(--accent); }
+
+.story { margin: 1rem 0; }
+.story dt { font-weight: 700; margin-top: .75rem; }
+.story dd { margin: .15rem 0 0; }
+.links { display: flex; flex-wrap: wrap; gap: 1rem; font-weight: 600; }
+
+.more { list-style: none; padding: 0; margin: 0; }
+.contact { list-style: none; padding: 0; }
+.contact li { padding: .4rem 0; }
+.contact span { display: inline-block; min-width: 8.5rem; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); margin-top: 3rem; padding-block: 1.5rem; color: var(--muted); font-size: .9rem; }
+
+/* ---------- Layout A: Research notebook (one calm column, like a short paper) ---------- */
+body[data-layout="a"] main { max-width: 44rem; }
+body[data-layout="a"] h1,
+body[data-layout="a"] h2,
+body[data-layout="a"] h3 { font-family: Georgia, "Times New Roman", serif; font-weight: 600; }
+body[data-layout="a"] .case { padding: 1.5rem 0; border-top: 1px solid var(--line); }
+body[data-layout="a"] .story { border-left: 3px solid var(--line); padding-left: 1rem; }
+body[data-layout="a"] .more li { padding: 1rem 0; border-top: 1px solid var(--line); }
+
+/* ---------- Layout B: Project dashboard (scannable cards) ---------- */
+body[data-layout="b"] .cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 26rem), 1fr)); gap: 1.25rem; }
+body[data-layout="b"] .case,
+body[data-layout="b"] .more li {
+  background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem;
+  display: flex; flex-direction: column;
+}
+body[data-layout="b"] .more { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem; }
+body[data-layout="b"] .more p { flex: 1; }
